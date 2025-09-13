@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@serwist/window':
+        specifier: ^9.2.1
+        version: 9.2.1(typescript@5.9.2)
       react:
         specifier: 19.1.1
         version: 19.1.1
@@ -17,16 +20,16 @@ importers:
     devDependencies:
       '@serwist/vite':
         specifier: latest
-        version: 9.2.1(typescript@5.9.2)(vite@7.1.3)
+        version: 9.2.1(typescript@5.9.2)(vite@7.1.5)
       '@types/react':
-        specifier: 19.1.12
-        version: 19.1.12
+        specifier: 19.1.13
+        version: 19.1.13
       '@types/react-dom':
         specifier: 19.1.9
-        version: 19.1.9(@types/react@19.1.12)
+        version: 19.1.9(@types/react@19.1.13)
       '@vitejs/plugin-react-swc':
         specifier: 4.0.1
-        version: 4.0.1(vite@7.1.3)
+        version: 4.0.1(vite@7.1.5)
       serwist:
         specifier: latest
         version: 9.2.1(typescript@5.9.2)
@@ -34,8 +37,8 @@ importers:
         specifier: 5.9.2
         version: 5.9.2
       vite:
-        specifier: 7.1.3
-        version: 7.1.3
+        specifier: 7.1.5
+        version: 7.1.5
 
 packages:
 
@@ -330,6 +333,14 @@ packages:
       typescript:
         optional: true
 
+  '@serwist/window@9.2.1':
+    resolution: {integrity: sha512-XkfV7+crhT4ArJCMcRle9AmzrxDjMRS6ExJwSPGmCqdb4JH/VyhcmJZljwoEpuZ1zh0cNvnWC8xEQ4p85jhxnQ==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   '@swc/core-darwin-arm64@1.13.5':
     resolution: {integrity: sha512-lKNv7SujeXvKn16gvQqUQI5DdyY8v7xcoO3k06/FJbHJS90zEwZdQiMNRiqpYw/orU543tPaWgz7cIYWhbopiQ==}
     engines: {node: '>=10'}
@@ -413,8 +424,11 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@19.1.12':
-    resolution: {integrity: sha512-cMoR+FoAf/Jyq6+Df2/Z41jISvGZZ2eTlnsaJRptmZ76Caldwy1odD4xTr/gNV9VLj0AWgg/nmkevIyUfIIq5w==}
+  '@types/react@19.1.13':
+    resolution: {integrity: sha512-hHkbU/eoO3EG5/MZkuFSKmYqPbSVk5byPFa3e7y/8TybHiLMACgI8seVYlicwk7H5K/rI2px9xrQp/C+AUDTiQ==}
+
+  '@types/trusted-types@2.0.7':
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
 
   '@vitejs/plugin-react-swc@4.0.1':
     resolution: {integrity: sha512-NQhPjysi5duItyrMd5JWZFf2vNOuSMyw+EoZyTBDzk+DkfYD8WNrsUs09sELV2cr1P15nufsN25hsUBt4CKF9Q==}
@@ -637,8 +651,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  vite@7.1.3:
-    resolution: {integrity: sha512-OOUi5zjkDxYrKhTV3V7iKsoS37VUM7v40+HuwEmcrsf11Cdx9y3DIr2Px6liIcZFwt3XSRpQvFpL3WVy7ApkGw==}
+  vite@7.1.5:
+    resolution: {integrity: sha512-4cKBO9wR75r0BeIWWWId9XK9Lj6La5X846Zw9dFfzMRw38IlTk2iCcUt6hsyiDRcPidc55ZParFYDXi0nXOeLQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -866,14 +880,21 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.2
 
-  '@serwist/vite@9.2.1(typescript@5.9.2)(vite@7.1.3)':
+  '@serwist/vite@9.2.1(typescript@5.9.2)(vite@7.1.5)':
     dependencies:
       '@serwist/build': 9.2.1(typescript@5.9.2)
       glob: 10.4.5
       kolorist: 1.8.0
       serwist: 9.2.1(typescript@5.9.2)
-      vite: 7.1.3
+      vite: 7.1.5
       zod: 4.1.5
+    optionalDependencies:
+      typescript: 5.9.2
+
+  '@serwist/window@9.2.1(typescript@5.9.2)':
+    dependencies:
+      '@types/trusted-types': 2.0.7
+      serwist: 9.2.1(typescript@5.9.2)
     optionalDependencies:
       typescript: 5.9.2
 
@@ -931,19 +952,21 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
-  '@types/react-dom@19.1.9(@types/react@19.1.12)':
+  '@types/react-dom@19.1.9(@types/react@19.1.13)':
     dependencies:
-      '@types/react': 19.1.12
+      '@types/react': 19.1.13
 
-  '@types/react@19.1.12':
+  '@types/react@19.1.13':
     dependencies:
       csstype: 3.1.3
 
-  '@vitejs/plugin-react-swc@4.0.1(vite@7.1.3)':
+  '@types/trusted-types@2.0.7': {}
+
+  '@vitejs/plugin-react-swc@4.0.1(vite@7.1.5)':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.32
       '@swc/core': 1.13.5
-      vite: 7.1.3
+      vite: 7.1.5
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -1171,7 +1194,7 @@ snapshots:
 
   typescript@5.9.2: {}
 
-  vite@7.1.3:
+  vite@7.1.5:
     dependencies:
       esbuild: 0.25.9
       fdir: 6.5.0(picomatch@4.0.3)
