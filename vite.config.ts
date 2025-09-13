@@ -1,7 +1,8 @@
-import { serwist } from "@serwist/vite";
+/* eslint-disable @typescript-eslint/naming-convention, @typescript-eslint/no-unsafe-call */
+import {serwist} from "@serwist/vite";
 import react from "@vitejs/plugin-react-swc";
-import { defineConfig } from "vite";
-import { createHtmlPlugin } from "vite-plugin-html";
+import {defineConfig} from "vite";
+import {createHtmlPlugin} from "vite-plugin-html";
 
 const serwistConfig = {
   swSrc: "src/sw.ts",
@@ -25,7 +26,8 @@ export default defineConfig({
       minify: false,
       inject: {
         data: {
-          importMap: JSON.stringify(importMap, null, 2),
+          // <head><script type="importmap"><%- importMap %></script></head>
+          importMap: JSON.stringify(importMap),
         },
       },
     }),

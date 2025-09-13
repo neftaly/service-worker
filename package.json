@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "xo",
+    "lint": "tsc --noEmit && xo",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -27,12 +27,14 @@
     "xo": "^1.2.2"
   },
   "xo": {
-    "ignores": [
-      "dist",
-      "node_modules"
-    ],
     "rules": {
-      "@stylistic/indent": "off"
+      "@stylistic/indent": "off",
+      "@stylistic/quotes": [
+        "error",
+        "double"
+      ],
+      "@typescript-eslint/triple-slash-reference": "off",
+      "unicorn/filename-case": "off"
     }
   }
 }

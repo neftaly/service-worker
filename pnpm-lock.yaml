@@ -21,9 +21,6 @@ importers:
         specifier: ^3.2.2
         version: 3.2.2(vite@7.1.5(terser@5.44.0))
     devDependencies:
-      '@eslint/js':
-        specifier: ^9.35.0
-        version: 9.35.0
       '@serwist/vite':
         specifier: latest
         version: 9.2.1(typescript@5.9.2)(vite@7.1.5(terser@5.44.0))

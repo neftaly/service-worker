@@ -1,11 +1,7 @@
-import "./App.css";
-
-import { useEffect } from "react";
-import { getSerwist } from "virtual:serwist";
-
-import viteLogo from "/vite.svg";
-
+import {useEffect} from "react";
+import {getSerwist} from "virtual:serwist";
 import reactLogo from "./assets/react.svg";
+import "./App.css";
 
 function App() {
   useEffect(() => {
@@ -18,17 +14,18 @@ function App() {
         void serwist?.register();
       }
     };
-    loadSerwist();
-  });
+
+    void loadSerwist();
+  }, []);
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+        <a href='https://vitejs.dev' target='_blank' rel='noreferrer'>
+          <img src='vite.svg' className='logo' alt='Vite logo' />
         </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href='https://react.dev' target='_blank' rel='noreferrer'>
+          <img src={reactLogo} className='logo react' alt='React logo' />
         </a>
       </div>
       <h1>Vite + React + Serwist</h1>

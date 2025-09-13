@@ -1,9 +1,12 @@
-import { Serwist } from "@serwist/window";
+import {Serwist} from "@serwist/window";
 
 // Feature detection for ServiceWorker ES module support
 // https://github.com/w3c/ServiceWorker/issues/1582
 const hasModuleSupport = (() => {
-  if (!navigator?.serviceWorker) return false;
+  if (!navigator?.serviceWorker) {
+    return false;
+  }
+
   let readType = false;
   navigator.serviceWorker
     .register("about:blank", {
@@ -12,23 +15,26 @@ const hasModuleSupport = (() => {
         return undefined;
       },
     })
-    .catch(() => {});
+    // eslint-disable-next-line promise/prefer-await-to-then
+    .catch(() => undefined);
   return readType;
 })();
 
-const serwist = new Serwist(
-  hasModuleSupport ? "./sw-module.js" : "./sw-classic.js",
-  {
-    scope: "/",
-    type: hasModuleSupport ? "module" : "classic",
-  },
-);
+const registerSw = () => {
+  const serwist = new Serwist(
+    hasModuleSupport ? "./sw-module.js" : "./sw-classic.js",
+    {
+      scope: "/",
+      type: hasModuleSupport ? "module" : "classic",
+    },
+  );
 
-// Log update messages
-serwist.addEventListener("message", (event) => {
-  if (event.data.meta === "serwist-broadcast-update") {
-    console.log(event.data.meta, event.data.type, event.data);
-  }
-});
+  // Log update messages
+  serwist.addEventListener("message", event => {
+    if (event.data.meta === "serwist-broadcast-update") {
+      console.log(event.data.meta, event.data.type, event.data);
+    }
+  });
+};
 
-void serwist.register();
+export default registerSw;
