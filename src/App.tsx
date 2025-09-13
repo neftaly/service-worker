@@ -1,7 +1,24 @@
+import { useEffect } from "react";
+import { Serwist } from "@serwist/window";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    const serwist = new Serwist("./sw-classic.js", {
+      scope: "/",
+      type: "classic",
+    });
+
+    // Log update messages
+    serwist.addEventListener("message", (event) => {
+      if (event.data.meta === "serwist-broadcast-update") {
+        console.log(event.data.meta, event.data.type, event.data);
+      }
+    });
+
+    void serwist.register();
+  }, []);
   return (
     <>
       <div>

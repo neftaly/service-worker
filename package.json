@@ -13,8 +13,7 @@
   "dependencies": {
     "@serwist/window": "^9.2.1",
     "react": "19.1.1",
-    "react-dom": "19.1.1",
-    "vite-plugin-html": "^3.2.2"
+    "react-dom": "19.1.1"
   },
   "devDependencies": {
     "@serwist/vite": "latest",
