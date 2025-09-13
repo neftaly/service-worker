@@ -10,32 +10,16 @@ const serwistConfig = {
   injectionPoint: "self.__SW_MANIFEST",
 };
 
-const importMap = {
-  imports: {
-    serwist: "https://esm.sh/serwist@9.2.1",
-    "@serwist/core": "https://esm.sh/@serwist/core@9.2.1",
-    "@serwist/vite/worker": "https://esm.sh/@serwist/vite@9.2.1/worker",
-  },
-};
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    createHtmlPlugin({
-      minify: false,
-      inject: {
-        data: {
-          // <head><script type="importmap"><%- importMap %></script></head>
-          importMap: JSON.stringify(importMap),
-        },
-      },
-    }),
     serwist({
       ...serwistConfig,
       type: "classic",
       swDest: "sw-classic.js",
       rollupFormat: "iife",
+      // Don't use aliases for classic build - bundle everything
     }),
     serwist({
       ...serwistConfig,
@@ -43,7 +27,13 @@ export default defineConfig({
       swDest: "sw-module.js",
       rollupFormat: "es",
       rollupOptions: {
-        external: Object.keys(importMap.imports),
+        resolve: {
+          alias: {
+            serwist: "https://esm.sh/serwist@9.2.1",
+            "@serwist/core": "https://esm.sh/@serwist/core@9.2.1",
+            "@serwist/vite/worker": "https://esm.sh/@serwist/vite@9.2.1/worker",
+          },
+        },
       },
     }),
   ],

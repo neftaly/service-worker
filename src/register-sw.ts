@@ -6,7 +6,6 @@ const hasModuleSupport = (() => {
   if (!navigator?.serviceWorker) {
     return false;
   }
-
   let readType = false;
   navigator.serviceWorker
     .register("about:blank", {
