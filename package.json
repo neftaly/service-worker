@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "xo",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -23,6 +23,16 @@
     "@vitejs/plugin-react-swc": "4.0.1",
     "serwist": "latest",
     "typescript": "5.9.2",
-    "vite": "7.1.5"
+    "vite": "7.1.5",
+    "xo": "^1.2.2"
+  },
+  "xo": {
+    "ignores": [
+      "dist",
+      "node_modules"
+    ],
+    "rules": {
+      "@stylistic/indent": "off"
+    }
   }
 }
