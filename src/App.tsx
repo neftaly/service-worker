@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   useEffect(() => {
-    const serwist = new Serwist("./sw-classic.js", {
+    const serwist = new Serwist("./sw.js", {
       scope: "/",
       type: "classic",
     });
