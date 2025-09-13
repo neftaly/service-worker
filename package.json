@@ -30,9 +30,6 @@
     "ignores": [
       "dist",
       "node_modules"
-    ],
-    "rules": {
-      "@stylistic/indent": "off"
-    }
+    ]
   }
 }
